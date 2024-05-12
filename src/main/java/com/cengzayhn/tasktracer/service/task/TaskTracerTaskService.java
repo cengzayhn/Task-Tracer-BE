@@ -1,6 +1,7 @@
 package com.cengzayhn.tasktracer.service.task;
 
 import com.cengzayhn.tasktracer.dto.request.task.TaskCreateDTO;
+import com.cengzayhn.tasktracer.model.task.State;
 import com.cengzayhn.tasktracer.model.task.TaskTracerTask;
 import com.cengzayhn.tasktracer.repository.task.TaskTracerTaskRepository;
 import org.modelmapper.ModelMapper;
@@ -23,6 +24,7 @@ public class TaskTracerTaskService {
         taskTracerTask.setDescription(taskCreateDTO.getDescription());
         taskTracerTask.setCreatedBy(taskCreateDTO.getCreatedBy());
         taskTracerTask.setCreatedDate(taskCreateDTO.getCreatedDate());
+        taskTracerTask.setState(State.OPEN);
         return taskTracerTaskRepository.save(taskTracerTask);
     }
 
