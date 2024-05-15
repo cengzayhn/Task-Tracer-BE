@@ -24,7 +24,6 @@ public class TaskTracerTaskController {
     }
 
 
-
     @Autowired
     public void setTaskTracerTaskService(TaskTracerTaskService taskTracerTaskService) {
         this.taskTracerTaskService = taskTracerTaskService;

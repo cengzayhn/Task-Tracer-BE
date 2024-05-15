@@ -16,11 +16,11 @@ public class TaskTracerTask extends Base {
 
     private String title;
 
+    private String description;
+
     private String createdBy;
 
     private String createdDate;
 
     private State state;
-
-    private String description;
 }
