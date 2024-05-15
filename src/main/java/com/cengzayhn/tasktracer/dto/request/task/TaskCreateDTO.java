@@ -7,6 +7,8 @@ import lombok.experimental.Accessors;
 @Data
 public class TaskCreateDTO {
 
+    private String projectId;
+
     private String title;
 
     private String description;

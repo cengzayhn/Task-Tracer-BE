@@ -12,13 +12,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "task")
 public class TaskTracerTask extends Base {
 
+    private String projectId;
+
     private String title;
 
     private String createdBy;
 
     private String createdDate;
 
-    private String description;
-
     private State state;
+
+    private String description;
 }

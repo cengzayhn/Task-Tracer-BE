@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -27,6 +28,11 @@ public class TaskTracerTaskService {
         taskTracerTask.setState(State.OPEN);
         return taskTracerTaskRepository.save(taskTracerTask);
     }
+
+    public List<TaskTracerTask> getTasksByDateAndProject(String createdDate, String projectId){
+        return taskTracerTaskRepository.findAllByCreatedDateAndProjectId(createdDate, projectId);
+    }
+
 
     @Autowired
     public void setTaskTracerTaskRepository(TaskTracerTaskRepository taskTracerTaskRepository) {
