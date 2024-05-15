@@ -9,14 +9,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @Data
-@Document
+@Document(collection = "task")
 public class TaskTracerTask extends Base {
 
-    private String title;
+    private String projectId;
 
-    private String description;
+    private String title;
 
     private String createdBy;
 
     private String createdDate;
+
+    private State state;
+
+    private String description;
 }
