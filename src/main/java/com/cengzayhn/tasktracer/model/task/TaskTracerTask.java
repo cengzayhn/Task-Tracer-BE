@@ -24,5 +24,4 @@ public class TaskTracerTask extends Base {
 
     private State state;
 
-    private String description;
 }
