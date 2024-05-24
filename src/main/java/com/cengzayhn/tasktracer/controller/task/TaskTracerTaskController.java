@@ -1,6 +1,7 @@
 package com.cengzayhn.tasktracer.controller.task;
 
 import com.cengzayhn.tasktracer.dto.request.task.TaskCreateDTO;
+import com.cengzayhn.tasktracer.dto.request.task.TaskUpdateDTO;
 import com.cengzayhn.tasktracer.model.task.TaskTracerTask;
 import com.cengzayhn.tasktracer.service.task.TaskTracerTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class TaskTracerTaskController {
         return ResponseEntity.status(HttpStatus.CREATED).body(taskTracerTask);
     }
 
+    @PutMapping("update")
+    public ResponseEntity<TaskTracerTask> updateTask(@RequestBody TaskUpdateDTO taskUpdateDTO){
+        TaskTracerTask taskTracerTask = taskTracerTaskService.update(taskUpdateDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(taskTracerTask);
+    }
 
 
     @Autowired
