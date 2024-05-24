@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -23,6 +22,7 @@ public class TaskTracerTaskService {
 
     public TaskTracerTask createTask(TaskCreateDTO taskCreateDTO){
         TaskTracerTask taskTracerTask = modelMapper.map(taskCreateDTO, TaskTracerTask.class);
+        taskTracerTask.setProjectId(taskCreateDTO.getProjectId());
         taskTracerTask.setId(UUID.randomUUID().toString());
         taskTracerTask.setTitle(taskCreateDTO.getTitle());
         taskTracerTask.setDescription(taskCreateDTO.getDescription());

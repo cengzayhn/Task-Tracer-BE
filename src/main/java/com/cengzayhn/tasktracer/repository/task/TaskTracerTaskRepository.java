@@ -8,4 +8,6 @@ import java.util.List;
 public interface TaskTracerTaskRepository extends MongoRepository<TaskTracerTask, String> {
     List<TaskTracerTask> findAllByCreatedDateAndProjectId(String createdDate, String projectId);
 
+    List<TaskTracerTask> findAllByProjectId(String projectId);
+
 }
