@@ -5,6 +5,7 @@ import com.cengzayhn.tasktracer.dto.request.task.TaskUpdateDTO;
 import com.cengzayhn.tasktracer.model.task.State;
 import com.cengzayhn.tasktracer.model.task.TaskTracerTask;
 import com.cengzayhn.tasktracer.repository.task.TaskTracerTaskRepository;
+import com.cengzayhn.tasktracer.service.project.TaskTracerProjectService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class TaskTracerTaskService {
 
     ModelMapper modelMapper;
     TaskTracerTaskRepository taskTracerTaskRepository;
+    TaskTracerProjectService taskTracerProjectService;
 
     public TaskTracerTask createTask(TaskCreateDTO taskCreateDTO){
         TaskTracerTask taskTracerTask = modelMapper.map(taskCreateDTO, TaskTracerTask.class);
@@ -29,6 +31,7 @@ public class TaskTracerTaskService {
         taskTracerTask.setCreatedBy(taskCreateDTO.getCreatedBy());
         taskTracerTask.setCreatedDate(taskCreateDTO.getCreatedDate());
         taskTracerTask.setState(State.OPEN);
+        taskTracerProjectService.addTask(taskCreateDTO.getProjectId(), taskTracerTask.getId());
         return taskTracerTaskRepository.save(taskTracerTask);
     }
 
@@ -55,6 +58,11 @@ public class TaskTracerTaskService {
     @Autowired
     public void setTaskTracerTaskRepository(TaskTracerTaskRepository taskTracerTaskRepository) {
         this.taskTracerTaskRepository = taskTracerTaskRepository;
+    }
+
+    @Autowired
+    public void setTaskTracerProjectService(TaskTracerProjectService taskTracerProjectService) {
+        this.taskTracerProjectService = taskTracerProjectService;
     }
 
     @Autowired
