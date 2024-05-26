@@ -22,7 +22,7 @@ public class TaskTracerProject extends Base {
 
     private ArrayList<String> taskIdList;
 
-    private ArrayList<String> memberIdList;
+    private ArrayList<String> usernameList;
 
     private Boolean isOpen = true;
 //her task bir projeye ait olmalı , her member ise birden fazla projeye ait olabilir

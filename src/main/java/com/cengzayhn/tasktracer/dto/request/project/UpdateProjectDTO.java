@@ -7,12 +7,11 @@ import java.util.ArrayList;
 
 @Accessors(chain = true)
 @Data
-public class ProjectCreateDTO {
+public class UpdateProjectDTO {
+
+    private String id;
 
     private String name;
 
-    private ArrayList<String> taskIdList;
-
     private ArrayList<String> usernameList;
-
 }
