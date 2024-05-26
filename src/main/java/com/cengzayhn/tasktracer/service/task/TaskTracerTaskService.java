@@ -24,8 +24,8 @@ public class TaskTracerTaskService {
 
     public TaskTracerTask createTask(TaskCreateDTO taskCreateDTO){
         TaskTracerTask taskTracerTask = modelMapper.map(taskCreateDTO, TaskTracerTask.class);
-        taskTracerTask.setProjectId(taskCreateDTO.getProjectId());
         taskTracerTask.setId(UUID.randomUUID().toString());
+        taskTracerTask.setProjectId(taskCreateDTO.getProjectId());
         taskTracerTask.setTitle(taskCreateDTO.getTitle());
         taskTracerTask.setDescription(taskCreateDTO.getDescription());
         taskTracerTask.setCreatedBy(taskCreateDTO.getCreatedBy());

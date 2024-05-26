@@ -84,6 +84,7 @@ public class TaskTracerProjectService {
     public TaskTracerProject closeProject(String projectId){
         TaskTracerProject taskTracerProject = getById(projectId);
         taskTracerProject.setIsOpen(false);
+        taskTracerProject.setClosedDate(LocalDateTime.now().toString());
         taskTracerProjectRepository.save(taskTracerProject);
         return taskTracerProject;
     }
