@@ -42,10 +42,18 @@ public class TaskTracerTaskService {
 
     public TaskTracerTask update(TaskUpdateDTO taskUpdateDTO){
         TaskTracerTask taskTracerTask = getById(taskUpdateDTO.getId());
-        taskTracerTask.setTitle(taskUpdateDTO.getTitle());
-        taskTracerTask.setDescription(taskUpdateDTO.getDescription());
-        taskTracerTask.setCreatedBy(taskUpdateDTO.getCreatedBy());
-        taskTracerTask.setState(taskUpdateDTO.getState());
+        if (taskUpdateDTO.getTitle() != null){
+            taskTracerTask.setTitle(taskUpdateDTO.getTitle());
+        }
+        if (taskUpdateDTO.getDescription() != null){
+            taskTracerTask.setDescription(taskUpdateDTO.getDescription());
+        }
+        if (taskUpdateDTO.getCreatedBy() != null){
+            taskTracerTask.setCreatedBy(taskUpdateDTO.getCreatedBy());
+        }
+        if (taskUpdateDTO.getState() != null){
+            taskTracerTask.setState(taskUpdateDTO.getState());
+        }
         taskTracerTaskRepository.save(taskTracerTask);
         return taskTracerTask;
     }
