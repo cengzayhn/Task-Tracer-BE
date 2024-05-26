@@ -30,7 +30,7 @@ public class TaskTracerTaskService {
         taskTracerTask.setDescription(taskCreateDTO.getDescription());
         taskTracerTask.setCreatedBy(taskCreateDTO.getCreatedBy());
         taskTracerTask.setCreatedDate(taskCreateDTO.getCreatedDate());
-        taskTracerTask.setState(State.OPEN);
+        taskTracerTask.setState(State.TODO);
         taskTracerProjectService.addTask(taskCreateDTO.getProjectId(), taskTracerTask.getId());
         return taskTracerTaskRepository.save(taskTracerTask);
     }
@@ -48,6 +48,10 @@ public class TaskTracerTaskService {
         taskTracerTask.setState(taskUpdateDTO.getState());
         taskTracerTaskRepository.save(taskTracerTask);
         return taskTracerTask;
+    }
+
+    public List<TaskTracerTask> getByProjectId(String projectId){
+        return taskTracerTaskRepository.findAllByProjectId(projectId);
     }
 
     public List<TaskTracerTask> getTasksByDateAndProject(String createdDate, String projectId){

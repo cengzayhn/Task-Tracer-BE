@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("task-tracer/task/")
@@ -27,6 +29,12 @@ public class TaskTracerTaskController {
     public ResponseEntity<TaskTracerTask> updateTask(@RequestBody TaskUpdateDTO taskUpdateDTO){
         TaskTracerTask taskTracerTask = taskTracerTaskService.update(taskUpdateDTO);
         return ResponseEntity.status(HttpStatus.OK).body(taskTracerTask);
+    }
+
+    @GetMapping("{projectId}/by-projectId")
+    public ResponseEntity<List<TaskTracerTask>> getByProjectId(@PathVariable String projectId){
+        List<TaskTracerTask> taskTracerTaskList = taskTracerTaskService.getByProjectId(projectId);
+        return ResponseEntity.status(HttpStatus.OK).body(taskTracerTaskList);
     }
 
 

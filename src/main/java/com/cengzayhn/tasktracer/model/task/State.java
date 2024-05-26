@@ -4,7 +4,7 @@ import lombok.experimental.Accessors;
 
 @Accessors(chain = true)
 public enum State {
-    OPEN("OPEN"), IN_PROGRESS("IN_PROGRESS"), IN_TEST("IN_TEST"), DONE("DONE");
+    TODO("TODO"), IN_PROGRESS("IN_PROGRESS"), IN_TEST("IN_TEST"), DONE("DONE");
 
     private final String text;
 
