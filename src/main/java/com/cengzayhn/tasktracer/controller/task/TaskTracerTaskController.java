@@ -36,6 +36,11 @@ public class TaskTracerTaskController {
         List<TaskTracerTask> taskTracerTaskList = taskTracerTaskService.getByProjectId(projectId);
         return ResponseEntity.status(HttpStatus.OK).body(taskTracerTaskList);
     }
+    @GetMapping("{projectId}/{createdDate}")
+    public ResponseEntity<List<TaskTracerTask>> getByDateAndProject(@PathVariable String projectId, @PathVariable String createdDate){
+        List<TaskTracerTask> taskTracerTaskList = taskTracerTaskService.getTasksByDateAndProject(createdDate, projectId);
+        return ResponseEntity.status(HttpStatus.OK).body(taskTracerTaskList);
+    }
 
 
     @Autowired
