@@ -42,6 +42,11 @@ public class TaskTracerTaskController {
         return ResponseEntity.status(HttpStatus.OK).body(taskTracerTaskList);
     }
 
+    @DeleteMapping("delete/{taskId}")
+    public ResponseEntity<TaskTracerTask> delete(@PathVariable String taskId){
+        TaskTracerTask task = taskTracerTaskService.delete(taskId);
+        return ResponseEntity.status(HttpStatus.OK).body(task);
+    }
 
     @Autowired
     public void setTaskTracerTaskService(TaskTracerTaskService taskTracerTaskService) {

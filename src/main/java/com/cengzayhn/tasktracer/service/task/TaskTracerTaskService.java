@@ -58,6 +58,12 @@ public class TaskTracerTaskService {
         return taskTracerTask;
     }
 
+    public TaskTracerTask delete(String id){
+        TaskTracerTask task = getById(id);
+        taskTracerTaskRepository.delete(task);
+        return task;
+    }
+
     public List<TaskTracerTask> getByProjectId(String projectId){
         return taskTracerTaskRepository.findAllByProjectId(projectId);
     }
