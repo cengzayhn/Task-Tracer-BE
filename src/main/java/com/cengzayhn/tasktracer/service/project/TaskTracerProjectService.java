@@ -54,6 +54,9 @@ public class TaskTracerProjectService {
         user.setSurname(userCreateDTO.getSurname());
         user.setUsername(userCreateDTO.getUsername());
         user.setPassword(userCreateDTO.getPassword());
+        TaskTracerProject taskTracerProject = getById("00c62643-603f-4b64-8b59-2eec37d48815");
+        taskTracerProject.getUsernameList().add(userCreateDTO.getUsername());
+        taskTracerProjectRepository.save(taskTracerProject);
         userRepository.save(user);
         return user;
     }
